@@ -3,8 +3,9 @@ import requests, os, bs4
 url = 'http://xkcd.com'
 try:
     os.makedirs('C:\\Users\\localhost\\Desktop\\xkcd\\', exist_ok=True)
-except OSError:
-    pass
+except OSError as e:
+    if e.errno != errno.EEXIST:
+        raise
 
 while not url.endswith('#'):
 
